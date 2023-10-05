@@ -101,7 +101,6 @@ public class LoaiSachFragment extends Fragment {
         dialog.show();
     }
 
-
     public void xoa(final String Id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Delete");
@@ -112,13 +111,7 @@ public class LoaiSachFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 sach = sachDAO.getMaLoai(Id);
                 if (sach != null) {
-                    if (String.valueOf(sach.maLoai).equalsIgnoreCase(Id)) {
-                        Toast.makeText(getContext(), "Không thể xóa do đang tồn tại sách loại này.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        dao.delete(Id);
-                        capNhatLv();
-                        dialog.cancel();
-                    }
+                    Toast.makeText(getContext(), "Không thể xóa do đang tồn tại sách loại này.", Toast.LENGTH_SHORT).show();
                 } else {
                     dao.delete(Id);
                     capNhatLv();

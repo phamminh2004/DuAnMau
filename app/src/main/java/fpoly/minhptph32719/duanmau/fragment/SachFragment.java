@@ -151,13 +151,7 @@ public class SachFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 phieuMuon = phieuMuonDAO.getMaSach(Id);
                 if (phieuMuon != null) {
-                    if (String.valueOf(phieuMuon.maSach).equalsIgnoreCase(Id)) {
-                        Toast.makeText(getContext(), "Không thể xóa do đang tồn tại phiếu mượn sách này.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        dao.delete(Id);
-                        capNhatLv();
-                        dialog.cancel();
-                    }
+                    Toast.makeText(getContext(), "Không thể xóa do đang tồn tại phiếu mượn sách này.", Toast.LENGTH_SHORT).show();
                 } else {
                     dao.delete(Id);
                     capNhatLv();
