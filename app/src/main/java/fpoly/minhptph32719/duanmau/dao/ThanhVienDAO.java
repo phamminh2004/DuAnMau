@@ -6,7 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import fpoly.minhptph32719.duanmau.helper.DbHelper;
+import fpoly.minhptph32719.duanmau.database.DbHelper;
 import fpoly.minhptph32719.duanmau.model.ThanhVien;
 
 import java.util.ArrayList;

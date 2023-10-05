@@ -1,4 +1,4 @@
-package fpoly.minhptph32719.duanmau;
+package fpoly.minhptph32719.duanmau.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import fpoly.minhptph32719.duanmau.R;
 import fpoly.minhptph32719.duanmau.dao.ThuThuDAO;
 import fpoly.minhptph32719.duanmau.fragment.DoanhThuFragment;
 import fpoly.minhptph32719.duanmau.fragment.DoiMKFragment;
@@ -26,7 +26,6 @@ import fpoly.minhptph32719.duanmau.fragment.ThanhVienFragment;
 import fpoly.minhptph32719.duanmau.fragment.ThemFragment;
 import fpoly.minhptph32719.duanmau.fragment.TopFragment;
 import fpoly.minhptph32719.duanmau.model.ThuThu;
-import fpoly.minhptph32719.duanmau.model.Top;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;

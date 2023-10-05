@@ -1,18 +1,17 @@
-package fpoly.minhptph32719.duanmau;
+package fpoly.minhptph32719.duanmau.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SharedMemory;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import fpoly.minhptph32719.duanmau.R;
 import fpoly.minhptph32719.duanmau.dao.ThuThuDAO;
-import fpoly.minhptph32719.duanmau.model.ThuThu;
 
 public class DangNhap extends AppCompatActivity {
     EditText edt_username, edt_password;

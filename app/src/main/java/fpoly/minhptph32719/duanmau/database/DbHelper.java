@@ -1,4 +1,4 @@
-package fpoly.minhptph32719.duanmau.helper;
+package fpoly.minhptph32719.duanmau.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

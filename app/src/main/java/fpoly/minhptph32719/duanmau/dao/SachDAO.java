@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import fpoly.minhptph32719.duanmau.helper.DbHelper;
+import fpoly.minhptph32719.duanmau.database.DbHelper;
 import fpoly.minhptph32719.duanmau.model.Sach;
 
 public class SachDAO {
