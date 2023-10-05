@@ -51,6 +51,16 @@ public class SachDAO {
         return list.get(0);
     }
 
+    public Sach getMaLoai(String id) {
+        String sql = "SELECT * FROM Sach WHERE maLoai=?";
+        List<Sach> list = getData(sql, id);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
     @SuppressLint("Range")
     public List<Sach> getData(String sql, String... selectionArgs) {
         List<Sach> list = new ArrayList<>();

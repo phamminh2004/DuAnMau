@@ -28,8 +28,10 @@ import fpoly.minhptph32719.duanmau.R;
 import fpoly.minhptph32719.duanmau.adapter.LoaiSachSpinnerAdapter;
 import fpoly.minhptph32719.duanmau.adapter.SachAdapter;
 import fpoly.minhptph32719.duanmau.dao.LoaiSachDAO;
+import fpoly.minhptph32719.duanmau.dao.PhieuMuonDAO;
 import fpoly.minhptph32719.duanmau.dao.SachDAO;
 import fpoly.minhptph32719.duanmau.model.LoaiSach;
+import fpoly.minhptph32719.duanmau.model.PhieuMuon;
 import fpoly.minhptph32719.duanmau.model.Sach;
 
 public class SachFragment extends Fragment {
@@ -48,6 +50,8 @@ public class SachFragment extends Fragment {
     ArrayList<LoaiSach> listLoaiSach;
     LoaiSachDAO loaiSachDAO;
     int maLoaiSach, position;
+    PhieuMuon phieuMuon;
+    PhieuMuonDAO phieuMuonDAO;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,6 +60,7 @@ public class SachFragment extends Fragment {
         lv_sach = view.findViewById(R.id.lv_sach);
         btn_add = view.findViewById(R.id.btn_add);
         dao = new SachDAO(getActivity());
+        phieuMuonDAO = new PhieuMuonDAO(getActivity());
         capNhatLv();
         btn_add.setOnClickListener(v -> {
             openDiaLog(getActivity(), 0);
@@ -136,7 +141,6 @@ public class SachFragment extends Fragment {
         dialog.show();
     }
 
-
     public void xoa(final String Id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Delete");
@@ -145,9 +149,20 @@ public class SachFragment extends Fragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dao.delete(Id);
-                capNhatLv();
-                dialog.cancel();
+                phieuMuon = phieuMuonDAO.getMaSach(Id);
+                if (phieuMuon != null) {
+                    if (String.valueOf(phieuMuon.maSach).equalsIgnoreCase(Id)) {
+                        Toast.makeText(getContext(), "Không thể xóa do đang tồn tại phiếu mượn sách này.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dao.delete(Id);
+                        capNhatLv();
+                        dialog.cancel();
+                    }
+                } else {
+                    dao.delete(Id);
+                    capNhatLv();
+                    dialog.cancel();
+                }
             }
         });
         builder.setNegativeButton("No", (dialog1, which) -> {

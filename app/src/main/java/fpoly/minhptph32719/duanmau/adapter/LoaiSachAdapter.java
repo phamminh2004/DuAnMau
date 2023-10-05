@@ -17,6 +17,7 @@ import fpoly.minhptph32719.duanmau.R;
 import fpoly.minhptph32719.duanmau.fragment.LoaiSachFragment;
 import fpoly.minhptph32719.duanmau.fragment.ThanhVienFragment;
 import fpoly.minhptph32719.duanmau.model.LoaiSach;
+import fpoly.minhptph32719.duanmau.model.Sach;
 import fpoly.minhptph32719.duanmau.model.ThanhVien;
 
 public class LoaiSachAdapter extends ArrayAdapter<LoaiSach> {

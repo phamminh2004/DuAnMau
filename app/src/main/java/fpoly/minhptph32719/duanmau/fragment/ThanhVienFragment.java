@@ -99,7 +99,6 @@ public class ThanhVienFragment extends Fragment {
         dialog.show();
     }
 
-
     public void xoa(final String Id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Delete");

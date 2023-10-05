@@ -63,6 +63,16 @@ public class PhieuMuonDAO {
         return list.get(0);
     }
 
+    public PhieuMuon getMaSach(String id) {
+        String sql = "SELECT * FROM PhieuMuon WHERE maSach=?";
+        List<PhieuMuon> list = getData(sql, id);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
     @SuppressLint("Range")
     public List<PhieuMuon> getData(String sql, String... selectionArgs) {
         List<PhieuMuon> list = new ArrayList<>();

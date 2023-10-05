@@ -29,11 +29,11 @@ public class ThongKeDAO {
         SachDAO sachDAO = new SachDAO(context);
         Cursor cursor = db.rawQuery(sqlTop, null);
         while (cursor.moveToNext()) {
-                Top top = new Top();
-                Sach sach = sachDAO.getID(cursor.getString(cursor.getColumnIndex("maSach")));
-                top.tenSach = sach.tenSach;
-                top.soLuong = Integer.parseInt(cursor.getString(cursor.getColumnIndex("soLuong")));
-                list.add(top);
+            Top top = new Top();
+            Sach sach = sachDAO.getID(cursor.getString(cursor.getColumnIndex("maSach")));
+            top.tenSach = sach.tenSach;
+            top.soLuong = Integer.parseInt(cursor.getString(cursor.getColumnIndex("soLuong")));
+            list.add(top);
         }
         return list;
     }

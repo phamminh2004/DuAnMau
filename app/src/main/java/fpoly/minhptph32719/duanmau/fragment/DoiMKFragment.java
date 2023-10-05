@@ -76,7 +76,8 @@ public class DoiMKFragment extends Fragment {
         }
         return check;
     }
-    public void reset(){
+
+    public void reset() {
         edtOldPass.setText("");
         edtPass.setText("");
         edtRePass.setText("");

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -24,7 +25,9 @@ import java.util.ArrayList;
 import fpoly.minhptph32719.duanmau.R;
 import fpoly.minhptph32719.duanmau.adapter.LoaiSachAdapter;
 import fpoly.minhptph32719.duanmau.dao.LoaiSachDAO;
+import fpoly.minhptph32719.duanmau.dao.SachDAO;
 import fpoly.minhptph32719.duanmau.model.LoaiSach;
+import fpoly.minhptph32719.duanmau.model.Sach;
 
 public class LoaiSachFragment extends Fragment {
     ListView lv_loaiSach;
@@ -37,6 +40,8 @@ public class LoaiSachFragment extends Fragment {
     static LoaiSachDAO dao;
     LoaiSachAdapter adapter;
     LoaiSach item;
+    SachDAO sachDAO;
+    Sach sach;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +49,7 @@ public class LoaiSachFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_loai_sach, container, false);
         lv_loaiSach = view.findViewById(R.id.lv_loaiSach);
         btn_add = view.findViewById(R.id.btn_add);
+        sachDAO = new SachDAO(getActivity());
         dao = new LoaiSachDAO(getActivity());
         capNhatLv();
         btn_add.setOnClickListener(v -> {
@@ -104,9 +110,20 @@ public class LoaiSachFragment extends Fragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dao.delete(Id);
-                capNhatLv();
-                dialog.cancel();
+                sach = sachDAO.getMaLoai(Id);
+                if (sach != null) {
+                    if (String.valueOf(sach.maLoai).equalsIgnoreCase(Id)) {
+                        Toast.makeText(getContext(), "Không thể xóa do đang tồn tại sách loại này.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dao.delete(Id);
+                        capNhatLv();
+                        dialog.cancel();
+                    }
+                } else {
+                    dao.delete(Id);
+                    capNhatLv();
+                    dialog.cancel();
+                }
             }
         });
         builder.setNegativeButton("No", (dialog1, which) -> {

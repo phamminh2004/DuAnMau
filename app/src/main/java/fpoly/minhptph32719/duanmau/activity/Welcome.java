@@ -20,6 +20,6 @@ public class Welcome extends AppCompatActivity {
                 startActivity(new Intent(Welcome.this, DangNhap.class));
                 finish();
             }
-        }, 500);
+        }, 1000);
     }
 }
