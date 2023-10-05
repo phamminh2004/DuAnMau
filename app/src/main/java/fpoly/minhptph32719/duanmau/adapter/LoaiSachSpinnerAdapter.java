@@ -38,7 +38,7 @@ public class LoaiSachSpinnerAdapter extends ArrayAdapter<LoaiSach> {
         if (item != null) {
             tv_maLoai = view.findViewById(R.id.tv_maLoai);
             tv_tenLoai = view.findViewById(R.id.tv_tenLoai);
-            tv_maLoai.setText(item.maLoai + ".");
+            tv_maLoai.setText(item.maLoai + ". ");
             tv_tenLoai.setText(item.tenLoai);
         }
         return view;
@@ -55,7 +55,7 @@ public class LoaiSachSpinnerAdapter extends ArrayAdapter<LoaiSach> {
         if (item != null) {
             tv_maLoai = view.findViewById(R.id.tv_maLoai);
             tv_tenLoai = view.findViewById(R.id.tv_tenLoai);
-            tv_maLoai.setText(item.maLoai + ".");
+            tv_maLoai.setText(item.maLoai + ". ");
             tv_tenLoai.setText(item.tenLoai);
         }
         return view;

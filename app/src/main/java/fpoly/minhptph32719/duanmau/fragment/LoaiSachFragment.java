@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,7 +31,8 @@ public class LoaiSachFragment extends Fragment {
     ArrayList<LoaiSach> list;
     FloatingActionButton btn_add;
     Dialog dialog;
-    EditText edt_maLoai, edt_tenLoai;
+    EditText edt_tenLoai;
+    TextView tv_maLoai;
     Button btn_save, btn_cancel;
     static LoaiSachDAO dao;
     LoaiSachAdapter adapter;
@@ -57,20 +59,20 @@ public class LoaiSachFragment extends Fragment {
     public void openDiaLog(final Context context, final int type) {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.loai_sach_dialog);
-        edt_maLoai = dialog.findViewById(R.id.edt_maLoai);
+        tv_maLoai = dialog.findViewById(R.id.tv_maLoai);
         edt_tenLoai = dialog.findViewById(R.id.edt_tenLoai);
         btn_save = dialog.findViewById(R.id.btn_save);
         btn_cancel = dialog.findViewById(R.id.btn_cancel);
-        edt_maLoai.setEnabled(false);
-        if (type != 0) {
-            edt_maLoai.setText(String.valueOf(item.maLoai));
+        if (type == 1) {
+            tv_maLoai.setText("Mã loại: " + item.maLoai);
             edt_tenLoai.setText(item.tenLoai);
+        } else {
+            item = new LoaiSach();
         }
         btn_cancel.setOnClickListener(v -> {
             dialog.dismiss();
         });
         btn_save.setOnClickListener(v -> {
-            item = new LoaiSach();
             item.tenLoai = edt_tenLoai.getText().toString();
             if (validate() > 0) {
                 if (type == 0) {
@@ -80,7 +82,6 @@ public class LoaiSachFragment extends Fragment {
                         Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    item.maLoai = Integer.parseInt(edt_maLoai.getText().toString());
                     if (dao.update(item) > 0) {
                         Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     } else {
@@ -110,7 +111,6 @@ public class LoaiSachFragment extends Fragment {
         });
         builder.setNegativeButton("No", (dialog1, which) -> {
         });
-        AlertDialog alertDialog = builder.create();
         builder.show();
     }
 

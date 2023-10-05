@@ -43,9 +43,8 @@ public class PhieuMuonFragment extends Fragment {
     ArrayList<PhieuMuon> list;
     FloatingActionButton btn_add;
     Dialog dialog;
-    EditText edtMaPM;
     Spinner sp_tv, sp_sach;
-    TextView tvNgay, tvTienThue;
+    TextView tvNgay, tvTienThue, tvMaPM;
     CheckBox chk_checkPM;
     Button btn_save, btn_cancel;
     static PhieuMuonDAO dao;
@@ -83,7 +82,7 @@ public class PhieuMuonFragment extends Fragment {
     public void openDiaLog(final Context context, final int type) {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.phieu_muon_dialog);
-        edtMaPM = dialog.findViewById(R.id.edt_maPM);
+        tvMaPM = dialog.findViewById(R.id.tv_maPM);
         sp_sach = dialog.findViewById(R.id.sp_sach);
         sp_tv = dialog.findViewById(R.id.sp_tv);
         tvNgay = dialog.findViewById(R.id.tv_ngay);
@@ -127,9 +126,8 @@ public class PhieuMuonFragment extends Fragment {
 
             }
         });
-        edtMaPM.setEnabled(false);
         if (type == 1) {
-            edtMaPM.setText(String.valueOf(item.maPM));
+            tvMaPM.setText("Mã phiếu: " + item.maPM);
             for (int i = 0; i < listThanhVien.size(); i++) {
                 if (item.maTV == (listThanhVien.get(i).maTV)) {
                     positionTV = i;
@@ -150,7 +148,8 @@ public class PhieuMuonFragment extends Fragment {
             }
         } else {
             item = new PhieuMuon();
-            tvNgay.setText("Ngày thuê: " + java.sql.Date.valueOf(String.valueOf(LocalDate.now())));
+            item.ngay = java.sql.Date.valueOf(String.valueOf(LocalDate.now()));
+            tvNgay.setText("Ngày thuê: " + item.ngay);
         }
         btn_cancel.setOnClickListener(v -> {
             dialog.dismiss();
@@ -159,7 +158,6 @@ public class PhieuMuonFragment extends Fragment {
             item.maSach = maSach;
             item.maTV = maThanhVien;
             item.tienThue = tienThue;
-            item.ngay = java.sql.Date.valueOf(String.valueOf(LocalDate.now()));
             if (chk_checkPM.isChecked()) {
                 item.traSach = 1;
             } else {
@@ -172,7 +170,6 @@ public class PhieuMuonFragment extends Fragment {
                     Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                item.maPM = Integer.parseInt(edtMaPM.getText().toString());
                 if (dao.update(item) > 0) {
                     Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 } else {
@@ -201,7 +198,6 @@ public class PhieuMuonFragment extends Fragment {
         });
         builder.setNegativeButton("No", (dialog1, which) -> {
         });
-        AlertDialog alertDialog = builder.create();
         builder.show();
     }
 

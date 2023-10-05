@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,7 +37,8 @@ public class SachFragment extends Fragment {
     ArrayList<Sach> list;
     FloatingActionButton btn_add;
     Dialog dialog;
-    EditText edt_maSach, edt_tenSach, edt_giaThue;
+    EditText edt_tenSach, edt_giaThue;
+    TextView tv_maSach;
     Spinner spinner;
     Button btn_save, btn_cancel;
     static SachDAO dao;
@@ -68,7 +70,7 @@ public class SachFragment extends Fragment {
     public void openDiaLog(final Context context, final int type) {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.sach_dialog);
-        edt_maSach = dialog.findViewById(R.id.edt_maSach);
+        tv_maSach = dialog.findViewById(R.id.tv_maSach);
         edt_tenSach = dialog.findViewById(R.id.edt_tenSach);
         edt_giaThue = dialog.findViewById(R.id.edt_giaThue);
         spinner = dialog.findViewById(R.id.sp_loaiSach);
@@ -91,9 +93,8 @@ public class SachFragment extends Fragment {
 
             }
         });
-        edt_maSach.setEnabled(false);
-        if (type != 0) {
-            edt_maSach.setText(String.valueOf(item.maSach));
+        if (type == 1) {
+            tv_maSach.setText("Mã sách: " + item.maSach);
             edt_tenSach.setText(item.tenSach);
             edt_giaThue.setText(String.valueOf(item.giaThue));
             for (int i = 0; i < listLoaiSach.size(); i++) {
@@ -103,17 +104,18 @@ public class SachFragment extends Fragment {
                 Log.i("demo", "posSach" + position);
                 spinner.setSelection(position);
             }
+        } else {
+            item = new Sach();
         }
 
         btn_cancel.setOnClickListener(v -> {
             dialog.dismiss();
         });
         btn_save.setOnClickListener(v -> {
-            item = new Sach();
-            item.tenSach = edt_tenSach.getText().toString();
-            item.giaThue = Integer.parseInt(edt_giaThue.getText().toString());
-            item.maLoai = maLoaiSach;
             if (validate() > 0) {
+                item.tenSach = edt_tenSach.getText().toString();
+                item.giaThue = Integer.parseInt(edt_giaThue.getText().toString());
+                item.maLoai = maLoaiSach;
                 if (type == 0) {
                     if (dao.insert(item) > 0) {
                         Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -121,7 +123,6 @@ public class SachFragment extends Fragment {
                         Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    item.maSach = Integer.parseInt(edt_maSach.getText().toString());
                     if (dao.update(item) > 0) {
                         Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     } else {
@@ -151,7 +152,6 @@ public class SachFragment extends Fragment {
         });
         builder.setNegativeButton("No", (dialog1, which) -> {
         });
-        AlertDialog alertDialog = builder.create();
         builder.show();
     }
 
@@ -165,6 +165,9 @@ public class SachFragment extends Fragment {
         int check = 1;
         if (edt_tenSach.getText().length() == 0 || edt_giaThue.getText().length() == 0) {
             Toast.makeText(getContext(), "Không được bỏ trống", Toast.LENGTH_SHORT).show();
+            check = -1;
+        } else if (!edt_giaThue.getText().toString().matches("\\d+")) {
+            Toast.makeText(getContext(), "Giá thuê phải là số nguyên >=0", Toast.LENGTH_SHORT).show();
             check = -1;
         }
         return check;

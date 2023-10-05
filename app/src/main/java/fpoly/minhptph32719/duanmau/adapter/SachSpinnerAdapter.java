@@ -39,7 +39,7 @@ public class SachSpinnerAdapter extends ArrayAdapter<Sach> {
         if (item != null) {
             tvMaSach = view.findViewById(R.id.tvMaSach);
             tvTenSach = view.findViewById(R.id.tvTenSach);
-            tvMaSach.setText(item.maSach + ".");
+            tvMaSach.setText(item.maSach + ". ");
             tvTenSach.setText(item.tenSach);
         }
         return view;
@@ -56,7 +56,7 @@ public class SachSpinnerAdapter extends ArrayAdapter<Sach> {
         if (item != null) {
             tvMaSach = view.findViewById(R.id.tvMaSach);
             tvTenSach = view.findViewById(R.id.tvTenSach);
-            tvMaSach.setText(item.maSach + ".");
+            tvMaSach.setText(item.maSach + ". ");
             tvTenSach.setText(item.tenSach);
         }
         return view;

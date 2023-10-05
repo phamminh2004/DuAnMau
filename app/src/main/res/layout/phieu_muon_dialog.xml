@@ -2,14 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
-    <EditText
-        android:id="@+id/edt_maPM"
+    <TextView
+        android:id="@+id/tv_maPM"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Mã phiếu mượn" />
+        android:gravity="center_vertical"
+        android:hint="Mã phiếu mượn"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/sp_tv"
@@ -51,24 +54,24 @@
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"
             android:text="LƯU"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"
             android:text="HỦY"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

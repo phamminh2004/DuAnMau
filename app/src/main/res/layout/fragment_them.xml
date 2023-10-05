@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".fragment.ThemFragment">
 
     <ImageView
@@ -86,8 +87,8 @@
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"
             android:text="LƯU"
@@ -97,7 +98,7 @@
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"

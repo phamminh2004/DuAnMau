@@ -39,7 +39,7 @@ public class ThanhVienSpinnerAdapter extends ArrayAdapter<ThanhVien> {
         if (item != null) {
             tv_maTV = view.findViewById(R.id.tv_maTV);
             tv_tenTV = view.findViewById(R.id.tv_tenTV);
-            tv_maTV.setText(item.maTV + ".");
+            tv_maTV.setText(item.maTV + ". ");
             tv_tenTV.setText(item.hoTen);
         }
         return view;
@@ -56,7 +56,7 @@ public class ThanhVienSpinnerAdapter extends ArrayAdapter<ThanhVien> {
         if (item != null) {
             tv_maTV = view.findViewById(R.id.tv_maTV);
             tv_tenTV = view.findViewById(R.id.tv_tenTV);
-            tv_maTV.setText(item.maTV + ".");
+            tv_maTV.setText(item.maTV + ". ");
             tv_tenTV.setText(item.hoTen);
         }
         return view;

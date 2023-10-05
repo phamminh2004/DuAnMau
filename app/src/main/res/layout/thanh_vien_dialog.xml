@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp">
 
-    <EditText
-        android:id="@+id/edt_maTV"
+    <TextView
+        android:id="@+id/tv_maTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="15dp"
-        android:hint="Mã thành viên" />
+        android:gravity="center_vertical"
+        android:hint="Mã thành viên"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edt_tenTV"
@@ -35,8 +37,8 @@
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"
             android:text="LƯU"
@@ -46,7 +48,7 @@
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:backgroundTint="#59808080"

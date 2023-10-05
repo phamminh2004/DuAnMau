@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,7 +31,8 @@ public class ThanhVienFragment extends Fragment {
     ArrayList<ThanhVien> list;
     FloatingActionButton btn_add;
     Dialog dialog;
-    EditText edt_maTV, edt_tenTV, edt_namSinh;
+    EditText edt_tenTV, edt_namSinh;
+    TextView tv_maTV;
     Button btn_save, btn_cancel;
     static ThanhVienDAO dao;
     ThanhVienAdapter adapter;
@@ -58,25 +60,25 @@ public class ThanhVienFragment extends Fragment {
     public void openDiaLog(final Context context, final int type) {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.thanh_vien_dialog);
-        edt_maTV = dialog.findViewById(R.id.edt_maTV);
+        tv_maTV = dialog.findViewById(R.id.tv_maTV);
         edt_tenTV = dialog.findViewById(R.id.edt_tenTV);
         edt_namSinh = dialog.findViewById(R.id.edt_namSinh);
         btn_save = dialog.findViewById(R.id.btn_save);
         btn_cancel = dialog.findViewById(R.id.btn_cancel);
-        edt_maTV.setEnabled(false);
-        if (type != 0) {
-            edt_maTV.setText(String.valueOf(item.maTV));
+        if (type == 1) {
+            tv_maTV.setText("Mã thành viên: " + item.maTV);
             edt_tenTV.setText(item.hoTen);
             edt_namSinh.setText(item.namSinh);
+        } else {
+            item = new ThanhVien();
         }
         btn_cancel.setOnClickListener(v -> {
             dialog.dismiss();
         });
         btn_save.setOnClickListener(v -> {
-            item = new ThanhVien();
-            item.hoTen = edt_tenTV.getText().toString();
-            item.namSinh = edt_namSinh.getText().toString();
             if (validate() > 0) {
+                item.hoTen = edt_tenTV.getText().toString();
+                item.namSinh = edt_namSinh.getText().toString();
                 if (type == 0) {
                     if (dao.insert(item) > 0) {
                         Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -84,7 +86,6 @@ public class ThanhVienFragment extends Fragment {
                         Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    item.maTV = Integer.parseInt(edt_maTV.getText().toString());
                     if (dao.update(item) > 0) {
                         Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     } else {
@@ -114,7 +115,6 @@ public class ThanhVienFragment extends Fragment {
         });
         builder.setNegativeButton("No", (dialog1, which) -> {
         });
-        AlertDialog alertDialog = builder.create();
         builder.show();
     }
 
@@ -128,6 +128,9 @@ public class ThanhVienFragment extends Fragment {
         int check = 1;
         if (edt_tenTV.getText().length() == 0 || edt_namSinh.length() == 0) {
             Toast.makeText(getContext(), "Không được bỏ trống", Toast.LENGTH_SHORT).show();
+            check = -1;
+        } else if (!edt_namSinh.getText().toString().matches("\\d+")) {
+            Toast.makeText(getContext(), "Năm sinh phải là số nguyên >=0 ", Toast.LENGTH_SHORT).show();
             check = -1;
         }
         return check;
