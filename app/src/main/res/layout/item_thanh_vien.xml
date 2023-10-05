@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="13"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMaTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã thành viên 1 "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTenTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên thành viên: Minh"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNamSinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="Năm sinh: 2004"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_delete" />
+
+</LinearLayout>

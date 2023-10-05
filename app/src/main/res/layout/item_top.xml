@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_sach"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:text="Sách: Doremon"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_soLuong"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="Số lượng: 2"
+        android:textSize="18sp" />
+</LinearLayout>

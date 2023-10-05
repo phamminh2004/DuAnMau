@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".fragment.DoiMKFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginVertical="20dp"
+        android:src="@drawable/ic_key" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Mật khẩu hiện tại:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtOldPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edt"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Mật khẩu mới:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edt"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Nhập lại mật khẩu:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtRePass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edt"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#59808080"
+            android:text="LƯU"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#59808080"
+            android:text="HỦY"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

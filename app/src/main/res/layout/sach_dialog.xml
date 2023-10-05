@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/edt_maSach"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:hint="Mã sách" />
+
+    <EditText
+        android:id="@+id/edt_tenSach"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:hint="Tên sách" />
+
+    <EditText
+        android:id="@+id/edt_giaThue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:hint="Giá thuê" />
+
+    <Spinner
+        android:id="@+id/sp_loaiSach"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#59808080"
+            android:text="LƯU"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#59808080"
+            android:text="HỦY"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
