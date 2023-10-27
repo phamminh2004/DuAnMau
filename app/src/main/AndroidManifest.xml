@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DuAnMau"
         tools:targetApi="31">
         <activity
+            android:name=".activity.GioiThieu"
+            android:exported="false" />
+        <activity
             android:name=".activity.DangNhap"
             android:exported="false" />
         <activity
@@ -20,8 +23,8 @@
             android:exported="false" />
         <activity
             android:name=".activity.Welcome"
-            android:icon="@drawable/ic_lib"
-            android:exported="true">
+            android:exported="true"
+            android:icon="@drawable/ic_lib">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

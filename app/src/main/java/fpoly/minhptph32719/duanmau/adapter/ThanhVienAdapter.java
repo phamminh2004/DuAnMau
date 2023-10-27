@@ -21,7 +21,7 @@ public class ThanhVienAdapter extends ArrayAdapter<ThanhVien> {
     private Context context;
     ThanhVienFragment fragment;
     private ArrayList<ThanhVien> lists;
-    TextView tvMaTV, tvTenTV, tvNamSinh;
+    TextView tvMaTV, tvTenTV, tvNamSinh, tvStk;
     ImageButton btn_delete;
 
     public ThanhVienAdapter(@NonNull Context context, ThanhVienFragment fragment, ArrayList<ThanhVien> lists) {
@@ -43,10 +43,12 @@ public class ThanhVienAdapter extends ArrayAdapter<ThanhVien> {
         if (item != null) {
             tvMaTV = view.findViewById(R.id.tvMaTV);
             tvTenTV = view.findViewById(R.id.tvTenTV);
+            tvStk = view.findViewById(R.id.tvStk);
             tvNamSinh = view.findViewById(R.id.tvNamSinh);
             btn_delete = view.findViewById(R.id.btn_delete);
             tvMaTV.setText("Mã thành viên: " + item.maTV);
             tvTenTV.setText("Tên thành viên: " + item.hoTen);
+            tvStk.setText("STK: "+item.stk);
             tvNamSinh.setText("Năm sinh: " + item.namSinh);
             btn_delete.setOnClickListener(v -> {
                 fragment.xoa(String.valueOf(item.maTV));
