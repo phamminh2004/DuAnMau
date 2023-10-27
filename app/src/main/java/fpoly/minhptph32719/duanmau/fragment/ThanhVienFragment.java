@@ -31,7 +31,7 @@ public class ThanhVienFragment extends Fragment {
     ArrayList<ThanhVien> list;
     FloatingActionButton btn_add;
     Dialog dialog;
-    EditText edt_tenTV, edt_namSinh, edt_stk;
+    EditText edt_tenTV, edt_namSinh;
     TextView tv_maTV;
     Button btn_save, btn_cancel;
     static ThanhVienDAO dao;
@@ -62,15 +62,13 @@ public class ThanhVienFragment extends Fragment {
         dialog.setContentView(R.layout.thanh_vien_dialog);
         tv_maTV = dialog.findViewById(R.id.tv_maTV);
         edt_tenTV = dialog.findViewById(R.id.edt_tenTV);
-        edt_stk = dialog.findViewById(R.id.edt_stk);
         edt_namSinh = dialog.findViewById(R.id.edt_namSinh);
         btn_save = dialog.findViewById(R.id.btn_save);
         btn_cancel = dialog.findViewById(R.id.btn_cancel);
         if (type == 1) {
             tv_maTV.setText("Mã thành viên: " + item.maTV);
             edt_tenTV.setText(item.hoTen);
-            edt_namSinh.setText(item.namSinh+"");
-            edt_stk.setText(item.stk+"");
+            edt_namSinh.setText(item.namSinh);
         } else {
             item = new ThanhVien();
         }
@@ -81,7 +79,6 @@ public class ThanhVienFragment extends Fragment {
             if (validate() > 0) {
                 item.hoTen = edt_tenTV.getText().toString();
                 item.namSinh = edt_namSinh.getText().toString();
-                item.stk = edt_stk.getText().toString();
                 if (type == 0) {
                     if (dao.insert(item) > 0) {
                         Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -128,10 +125,10 @@ public class ThanhVienFragment extends Fragment {
 
     public int validate() {
         int check = 1;
-        if (edt_tenTV.getText().length() == 0 || edt_namSinh.length() == 0||edt_stk.length() == 0) {
+        if (edt_tenTV.getText().length() == 0 || edt_namSinh.length() == 0) {
             Toast.makeText(getContext(), "Không được bỏ trống", Toast.LENGTH_SHORT).show();
             check = -1;
-        } else if (!edt_namSinh.getText().toString().matches("\\d+")||!edt_stk.getText().toString().matches("\\d+")) {
+        } else if (!edt_namSinh.getText().toString().matches("\\d+")) {
             Toast.makeText(getContext(), "Năm sinh và stk phải là số nguyên >=0 ", Toast.LENGTH_SHORT).show();
             check = -1;
         }

@@ -23,13 +23,6 @@
         android:hint="Tên thành viên" />
 
     <EditText
-        android:id="@+id/edt_stk"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="15dp"
-        android:hint="STK" />
-
-    <EditText
         android:id="@+id/edt_namSinh"
         android:layout_width="match_parent"
         android:layout_height="50dp"

@@ -31,15 +31,14 @@ public class DbHelper extends SQLiteOpenHelper {
         String tableThanhVien = "CREATE TABLE ThanhVien(\n" +
                 "  maTV integer PRIMARY KEY AUTOINCREMENT,\n" +
                 "  hoTen text not NULL,\n" +
-                "  stk text NOT NULL,\n" +
                 "  namSinh text NOT NULL\n" +
                 ")\n";
         db.execSQL(tableThanhVien);
         String tv = "INSERT INTO ThanhVien VALUES\n" +
-                "(1,'Phạm Thị Linh','2763827368327',2004)," +
-                "(2,'Nguyễn Văn Tú','32323456740',2000)," +
-                "(3,'Dương Quốc Anh','47386438753',2001)," +
-                "(4,'Kiều Mỹ Duyên','343434434259',1998)";
+                "(1,'Phạm Thị Linh',2004)," +
+                "(2,'Nguyễn Văn Tú',2000)," +
+                "(3,'Dương Quốc Anh',2001)," +
+                "(4,'Kiều Mỹ Duyên',1998)";
         db.execSQL(tv);
 
         String tableLoaiSach = "CREATE TABLE LoaiSach(\n" +
@@ -90,33 +89,5 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        String dropTableThuThu = "drop table if exists ThuThu";
-//        db.execSQL(dropTableThuThu);
-//        String dropTableThanhVien = "drop table if exists ThanhVien";
-//        db.execSQL(dropTableThanhVien);
-//        String dropTableLoaiSach = "drop table if exists LoaiSach";
-//        db.execSQL(dropTableLoaiSach);
-//        String dropTableSach = "drop table if exists Sach";
-//        db.execSQL(dropTableSach);
-//        String dropTablePhieuMuon = "drop table if exists PhieuMuon";
-//        db.execSQL(dropTablePhieuMuon);
-//        onCreate(db);
-//        if (newVersion!=oldVersion){
-//            String dropTableThanhVien = "drop table if exists ThanhVien";
-//            db.execSQL(dropTableThanhVien);
-//            String tableThanhVien = "CREATE TABLE ThanhVien(\n" +
-//                    "  maTV integer PRIMARY KEY AUTOINCREMENT,\n" +
-//                    "  hoTen text not NULL,\n" +
-//                    "  stk integer NOT NULL,\n" +
-//                    "  namSinh text NOT NULL\n" +
-//                    ")\n";
-//            db.execSQL(tableThanhVien);
-//            String tv = "INSERT INTO ThanhVien VALUES\n" +
-//                    "(1,'Phạm Thị Linh',2763827368327,2004)," +
-//                    "(2,'Nguyễn Văn Tú',32323456740,2000)," +
-//                    "(3,'Dương Quốc Anh',47386438753,2001)," +
-//                    "(4,'Kiều Mỹ Duyên',343434434259,1998)";
-//            db.execSQL(tv);
-//        }
     }
 }

@@ -26,7 +26,6 @@
             android:text="Tên sách: Java 1"
             android:textSize="22sp"
             android:textStyle="bold" />
-
         <TextView
             android:id="@+id/tvGiaThue"
             android:layout_width="match_parent"

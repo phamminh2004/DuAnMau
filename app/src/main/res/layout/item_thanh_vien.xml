@@ -28,13 +28,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvStk"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:text="STK: 843967436875"
-            android:textSize="18sp" />
-        <TextView
             android:id="@+id/tvNamSinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

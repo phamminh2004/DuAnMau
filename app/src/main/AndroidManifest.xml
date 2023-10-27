@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DuAnMau"
         tools:targetApi="31">
         <activity
-            android:name=".activity.GioiThieu"
-            android:exported="false" />
-        <activity
             android:name=".activity.DangNhap"
             android:exported="false" />
         <activity

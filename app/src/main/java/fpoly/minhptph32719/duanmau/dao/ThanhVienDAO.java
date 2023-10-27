@@ -23,7 +23,6 @@ public class ThanhVienDAO {
     public long insert(ThanhVien tv) {
         ContentValues values = new ContentValues();
         values.put("hoTen", tv.hoTen);
-        values.put("stk",tv.stk);
         values.put("namSinh", tv.namSinh);
         return db.insert("ThanhVien", null, values);
     }
@@ -31,7 +30,6 @@ public class ThanhVienDAO {
     public long update(ThanhVien tv) {
         ContentValues values = new ContentValues();
         values.put("hoTen", tv.hoTen);
-        values.put("stk",tv.stk);
         values.put("namSinh", tv.namSinh);
         return db.update("ThanhVien", values, "maTV=?", new String[]{String.valueOf(tv.maTV)});
     }
@@ -59,7 +57,6 @@ public class ThanhVienDAO {
             ThanhVien tv = new ThanhVien();
             tv.maTV = Integer.parseInt(cursor.getString(cursor.getColumnIndex("maTV")));
             tv.hoTen = cursor.getString(cursor.getColumnIndex("hoTen"));
-            tv.stk = cursor.getString(cursor.getColumnIndex("stk"));
             tv.namSinh = cursor.getString(cursor.getColumnIndex("namSinh"));
             list.add(tv);
         }
